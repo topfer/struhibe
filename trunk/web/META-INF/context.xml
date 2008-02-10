@@ -1,0 +1,13 @@
+<Context path="/STTest" reloadable="true" debug="5" crossContext="true"
+        antiJARLocking="true" antiResourceLocking="false">
+
+    <Logger className="org.apache.catalina.logger.FileLogger"
+               prefix="STTest." suffix=".txt" timestamp="true"/>
+
+    <Resource name="jdbc/STTestDS" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="sttestuser" password="TomcaT"
+	       driverClassName="org.gjt.mm.mysql.Driver"
+	       url="jdbc:mysql://localhost:3306/sttest?autoReconnect=true"/>
+
+</Context>

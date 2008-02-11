@@ -10,7 +10,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost/struhibe_db</property>
     <property name="hibernate.connection.username">struhibe_usr</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">struhibe_pwd</property>
 
     <!-- JDBC connection pool (use the built-in) -->
     <property name="hibernate.connection.pool_size">10</property>

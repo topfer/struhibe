@@ -167,7 +167,7 @@
 
 -->
 
-  <target name="compile" depends="prepare"
+  <target name="compile" depends="prepare,codegen"
    description="Compile Java sources">
 
     <!-- Compile Java classes as necessary -->
@@ -279,6 +279,16 @@
     <hibernatetool destdir="${src.home}">
       <configuration configurationfile="${build.home}/WEB-INF/classes/hibernate.mysql.cfg.xml"/>
       <hbm2java/>
+      <classpath refid="project.classpath"/>
+    </hibernatetool>
+  </target>
+
+<!-- ==================== Schemagen Target ================================== -->
+
+  <target name="schemagen" depends="prepare" description="Generate DB schema from the O/R mapping files">
+    <hibernatetool destdir="${src.home}">
+      <configuration configurationfile="${build.home}/WEB-INF/classes/hibernate.mysql.cfg.xml"/>
+      <hbm2ddl export="false" drop="true" create="true" outputfilename="sql.ddl"/>
       <classpath refid="project.classpath"/>
     </hibernatetool>
   </target>

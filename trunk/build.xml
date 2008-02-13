@@ -167,7 +167,7 @@
 
 -->
 
-  <target name="compile" depends="prepare,codegen"
+  <target name="compile" depends="prepare"
    description="Compile Java sources">
 
     <!-- Compile Java classes as necessary -->
@@ -175,6 +175,7 @@
     <javac srcdir="${src.home}"
           destdir="${build.home}/WEB-INF/classes"
             debug="${compile.debug}"
+         excludes="generated/**"
       deprecation="${compile.deprecation}"
          optimize="${compile.optimize}">
         <classpath refid="project.classpath"/>
@@ -273,10 +274,26 @@
 
   </target>
 
+
+<!-- ==================== Hibergen Target ================================== -->
+
+<!--
+
+  The Hibergen target produces the java sources for the beans and the
+  database schemas described in the hibernate mapping files.
+  Normally the user should not call this target directly as its
+  going to overwrite existing beans
+
+-->
+
+  <target name="hibergen" depends="codegen,schemagen"
+   description="Generate beans and DB schemas"/>
+
+
 <!-- ==================== Codegen Target ================================== -->
 
   <target name="codegen" depends="prepare" description="Generate Java source from the O/R mapping files">
-    <hibernatetool destdir="${src.home}">
+    <hibernatetool destdir="${src.home}/generated">
       <configuration configurationfile="${build.home}/WEB-INF/classes/hibernate.mysql.cfg.xml"/>
       <hbm2java/>
       <classpath refid="project.classpath"/>
@@ -286,7 +303,7 @@
 <!-- ==================== Schemagen Target ================================== -->
 
   <target name="schemagen" depends="prepare" description="Generate DB schema from the O/R mapping files">
-    <hibernatetool destdir="${src.home}">
+    <hibernatetool destdir="${src.home}/generated">
       <configuration configurationfile="${build.home}/WEB-INF/classes/hibernate.mysql.cfg.xml"/>
       <hbm2ddl export="false" drop="true" create="true" outputfilename="sql.ddl"/>
       <classpath refid="project.classpath"/>

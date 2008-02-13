@@ -1,0 +1,13 @@
+<Context path="/struhibe" reloadable="true" debug="5" crossContext="true"
+        antiJARLocking="true" antiResourceLocking="false">
+<!--
+    <Logger className="org.apache.catalina.logger.FileLogger"
+               prefix="STTest." suffix=".txt" timestamp="true"/>
+-->
+    <Resource name="jdbc/struhibeds" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="struhibe_usr" password="struhibe_pwd"
+	       driverClassName="com.mysql.jdbc.Driver"
+	       url="jdbc:mysql://localhost:3306/struhibe_db?autoReconnect=true"/>
+
+</Context>

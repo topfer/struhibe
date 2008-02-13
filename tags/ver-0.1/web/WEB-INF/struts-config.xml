@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE struts-config 
+          PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<struts-config>
+
+  <form-beans>
+    <form-bean name="DictatorForm" type="com.ft.ht.DictatorForm"/>
+  </form-beans>
+
+  <action-mappings>
+
+    <action path="/list"
+	    type="org.apache.struts.actions.ForwardAction"
+	    parameter="/pages/AddDictator.jsp"/>
+
+    <action path="/AddDictator" 
+	    type="com.ft.st.AddDictatorAction" 
+	    name="DictatorForm" 
+	    scope="request" 
+	    validate="false">
+      <forward name="success" path="/list.do"/>
+      <forward name="failure" path="/pages/failure.html"/>
+    </action>    
+
+  </action-mappings>  
+  
+</struts-config>

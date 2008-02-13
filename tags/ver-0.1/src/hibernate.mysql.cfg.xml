@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+    <!-- Database connection settings -->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/struhibe_db</property>
+    <property name="hibernate.connection.username">struhibe_usr</property>
+    <property name="hibernate.connection.password">struhibe_pwd</property>
+
+    <!-- JDBC connection pool (use the built-in) -->
+    <property name="hibernate.connection.pool_size">10</property>
+
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+
+    <!-- SQL dialect -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Drop and re-create the database schema on startup -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+
+    <!-- Enable the thread-bound strategy -->
+    <!-- 
+    This does not mean that all Hibernate Sessions are closed when a transaction is committed! 
+    Only the Session that you obtained with sf.getCurrentSession() is flushed and closed automatically
+    -->
+    <property name="hibernate.current_session_context_class">thread</property>
+
+    <!-- Mapping files -->
+    <mapping resource="com/ft/ht/Dictator.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

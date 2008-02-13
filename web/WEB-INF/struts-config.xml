@@ -11,14 +11,15 @@
   <action-mappings>
 
     <action path="/list"
-	    forward="/pages/AddDictator.jsp"/>
+	    type="org.apache.struts.actions.ForwardAction"
+	    parameter="/pages/AddDictator.jsp"/>
 
     <action path="/AddDictator" 
-	    Type="com.ft.st.AddDictatorAction" 
+	    type="com.ft.st.AddDictatorAction" 
 	    name="DictatorForm" 
 	    scope="request" 
 	    validate="false">
-      <forward name="success" path="/list"/>
+      <forward name="success" path="/list.do"/>
       <forward name="failure" path="/pages/failure.html"/>
     </action>    
 

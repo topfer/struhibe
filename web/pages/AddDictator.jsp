@@ -74,7 +74,7 @@
       
       <logic:iterate id="element" name="items" scope="request" type="com.ft.ht.DictatorForm">
 	<tr>
-	  <td><bean:write name="element" property="id"/></td>
+
 	  <td><bean:write name="element" property="firstName"/></td>
 	  <td><bean:write name="element" property="lastName"/></td>
 	</tr>

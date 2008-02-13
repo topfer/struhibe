@@ -5,7 +5,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="com.ft.ht.Dictator" table="DICTATOR">
+  <class name="com.ft.ht.DictatorForm" table="DICTATOR">
 
     <meta attribute="class-description">
       Class that represents a single parson who deserves to be shot
@@ -17,21 +17,21 @@
       <generator class="native"/>
     </id>
 
-    <property name="firstName" type="string" not-null="true"/>
+    <property name="firstName" type="string" not-null="true" column="FIRST_NAME"/>
 
-    <property name="lastName" type="string" not-null="true"/>
+    <property name="lastName" type="string" not-null="true" column="LAST_NAME"/>
 
-    <property name="birthDate" type="date"/>
+    <property name="birthDate" type="date" column="BIRTH_DATE"/>
 
-    <property name="added" type="date">
+    <property name="added" type="date" column="ADDED">
       <meta attribute="field-description">Date when this person was added to the DB</meta>
     </property>
 
-    <property name="inPower" type="time">
+    <property name="inPower" type="time" column="IN_POWER">
       <meta attribute="field-description">Represents the duration an individual was at power</meta>
     </property>
 
-    <property name="offsprings" type="short"/>
+    <property name="offsprings" type="short" column="OFFSPRINGS"/>
 
   </class>
 </hibernate-mapping>

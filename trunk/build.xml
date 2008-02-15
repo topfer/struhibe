@@ -58,6 +58,7 @@
       <include name="*.jar"/>
     </fileset>
     <pathelement location="${build.home}/WEB-INF/classes"/>
+    <pathelement location="${src.home}"/>
   </path>
 
 <!-- ================== Custom Ant Task Definitions ======================= -->
@@ -86,6 +87,7 @@
   <taskdef name="svn" classpathref="project.classpath" classname="org.tigris.subversion.svnant.SvnTask"/>
   <taskdef name="xmltask" classpathref="project.classpath" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
   <taskdef name="hibernatetool" classpathref="project.classpath" classname="org.hibernate.tool.ant.HibernateToolTask"/>
+  <taskdef name="middlegen" classpathref="project.classpath" classname="middlegen.MiddlegenTask"/>
 
 <!-- ==================== External Dependencies =========================== -->
 
@@ -274,6 +276,30 @@
 
   </target>
 
+
+<!-- ==================== Middlegen GUI Target ================================== -->
+
+<!--
+    Starts up the mddlegen GUI
+-->
+  <target name="middlegen" description="Starts up the mddlegen GUI">
+
+     <!-- Create generated direcory under src -->
+    <mkdir  dir="${src.home}/generated"/>
+
+    <middlegen appname="struhibe"
+	       prefsdir="${basedir}" gui="true"
+	       databaseurl="jdbc:mysql://localhost:3306/struhibe_db"
+	       driver="com.mysql.jdbc.Driver"
+	       username="struhibe_usr"
+	       password="struhibe_pwd"
+	       schema="">
+  
+      <hibernate destination="${src.home}/generated"
+		 package="com.ft.ht"/>
+
+    </middlegen>
+  </target>
 
 <!-- ==================== Hibergen Target ================================== -->
 

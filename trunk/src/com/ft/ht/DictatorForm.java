@@ -1,12 +1,15 @@
 package com.ft.ht;
-// Generated Feb 12, 2008 4:21:46 PM by Hibernate Tools 3.2.0.CR1
+// Generated Feb 15, 2008 3:17:42 AM by Hibernate Tools 3.2.0.CR1
 
 
 import java.util.Date;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 
-//import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -18,18 +21,15 @@ import org.apache.struts.action.ActionMapping;
  */
 public class DictatorForm extends ActionForm {
 
+
      private int id;
+     /**
+      * Atomatically generated date when this person was added to the DB
+     */
+     private Date added;
      private String firstName;
      private String lastName;
      private Date birthDate;
-     /**
-      * Date when this person was added to the DB
-     */
-     private Date added;
-     /**
-      * Represents the duration an individual was at power
-     */
-     private Date inPower;
      private short offsprings;
 
     public DictatorForm() {
@@ -40,12 +40,11 @@ public class DictatorForm extends ActionForm {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public DictatorForm(String firstName, String lastName, Date birthDate, Date added, Date inPower, short offsprings) {
+    public DictatorForm(Date added, String firstName, String lastName, Date birthDate, short offsprings) {
+       this.added = added;
        this.firstName = firstName;
        this.lastName = lastName;
        this.birthDate = birthDate;
-       this.added = added;
-       this.inPower = inPower;
        this.offsprings = offsprings;
     }
    
@@ -55,6 +54,16 @@ public class DictatorForm extends ActionForm {
     
     protected void setId(int id) {
         this.id = id;
+    }
+    /**       
+     *      * Atomatically generated date when this person was added to the DB
+     */
+    public Date getAdded() {
+        return this.added;
+    }
+    
+    public void setAdded(Date added) {
+        this.added = added;
     }
     public String getFirstName() {
         return this.firstName;
@@ -77,26 +86,6 @@ public class DictatorForm extends ActionForm {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    /**       
-     *      * Date when this person was added to the DB
-     */
-    public Date getAdded() {
-        return this.added;
-    }
-    
-    public void setAdded(Date added) {
-        this.added = added;
-    }
-    /**       
-     *      * Represents the duration an individual was at power
-     */
-    public Date getInPower() {
-        return this.inPower;
-    }
-    
-    public void setInPower(Date inPower) {
-        this.inPower = inPower;
-    }
     public short getOffsprings() {
         return this.offsprings;
     }
@@ -104,6 +93,9 @@ public class DictatorForm extends ActionForm {
     public void setOffsprings(short offsprings) {
         this.offsprings = offsprings;
     }
+
+
+
 
 }
 

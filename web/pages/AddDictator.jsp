@@ -75,7 +75,7 @@
       <logic:iterate id="element" name="items" scope="request" type="com.ft.ht.DictatorForm">
 	<tr>
 	  <td><bean:write name="element" property="id" format=""/></td>
-	  <td><bean:write name="element" property="added" format=""/></td>
+	  <td><bean:write name="element" property="added"/></td>
 	  <td><bean:write name="element" property="firstName"/></td>
 	  <td><bean:write name="element" property="lastName"/></td>
 	  <td><bean:write name="element" property="offsprings" format=""/></td>
@@ -92,7 +92,7 @@
       <table border="1">
 	<tr><td>First name :</td><td><html:text property="firstName"/></tr>
 	<tr><td>Last Name :</td><td><html:text property="lastName"/></td></tr>
-	<!-- <tr><td>Birth date :</td><td><html:text property="birthDate"/></td></tr> -->
+	<tr><td>Birth date :</td><td><html:text property="birthDate"/></td></tr>
 	<tr><td>Offsprings :</td><td><html:text property="offsprings"/></td></tr>
       </table>
       <br/>

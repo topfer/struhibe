@@ -17,7 +17,7 @@
       <generator class="native"/>
     </id>
 
-    <property name="added" type="date" column="ADDED">
+    <property name="added" column="ADDED">
       <meta attribute="field-description">Atomatically generated date when this person was added to the DB</meta>
     </property>
 
@@ -25,7 +25,7 @@
 
     <property name="lastName" type="string" not-null="true" column="LAST_NAME"/>
 
-    <property name="birthDate" type="date" column="BIRTH_DATE"/>
+    <property name="birthDate" column="BIRTH_DATE"/>
 
     <property name="offsprings" type="short" column="OFFSPRINGS"/>
 

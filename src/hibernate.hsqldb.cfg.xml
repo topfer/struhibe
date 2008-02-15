@@ -31,8 +31,8 @@
     <!-- Drop and re-create the database schema on startup -->
     <property name="hbm2ddl.auto">create</property>
 
-    <mapping resource="events/Event.hbm.xml"/>
-    <mapping resource="events/Person.hbm.xml"/>
+    <!-- Mapping files -->
+    <mapping resource="com/ft/ht/Dictator.hbm.xml"/>
 
   </session-factory>
 

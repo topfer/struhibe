@@ -17,19 +17,15 @@
       <generator class="native"/>
     </id>
 
+    <property name="added" type="date" column="ADDED">
+      <meta attribute="field-description">Atomatically generated date when this person was added to the DB</meta>
+    </property>
+
     <property name="firstName" type="string" not-null="true" column="FIRST_NAME"/>
 
     <property name="lastName" type="string" not-null="true" column="LAST_NAME"/>
 
     <property name="birthDate" type="date" column="BIRTH_DATE"/>
-
-    <property name="added" type="date" column="ADDED">
-      <meta attribute="field-description">Date when this person was added to the DB</meta>
-    </property>
-
-    <property name="inPower" type="time" column="IN_POWER">
-      <meta attribute="field-description">Represents the duration an individual was at power</meta>
-    </property>
 
     <property name="offsprings" type="short" column="OFFSPRINGS"/>
 

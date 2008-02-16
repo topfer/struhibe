@@ -58,7 +58,6 @@
       <include name="*.jar"/>
     </fileset>
     <pathelement location="${build.home}/WEB-INF/classes"/>
-    <pathelement location="${src.home}"/>
   </path>
 
 <!-- ================== Custom Ant Task Definitions ======================= -->
@@ -276,13 +275,12 @@
 
   </target>
 
-
 <!-- ==================== Middlegen GUI Target ================================== -->
 
 <!--
-    Starts up the mddlegen GUI
+    Starts up the mddlegen GUI used to export hibernate mappings, ActionForms and JSPs
 -->
-  <target name="middlegen" description="Starts up the mddlegen GUI">
+  <target name="middlegen" description="Starts up the middlegen GUI">
 
      <!-- Create generated direcory under src -->
     <mkdir  dir="${src.home}/generated"/>
@@ -297,6 +295,11 @@
   
       <hibernate destination="${src.home}/generated"
 		 package="com.ft.ht"/>
+
+      <struts destination="${src.home}/generated"
+	      package="com.ft.ht"/>
+
+      <jsp destination="${src.home}/generated"/>
 
     </middlegen>
   </target>

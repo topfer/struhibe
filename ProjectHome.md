@@ -1,0 +1,1 @@
+Test the capabilities of hibernate and struts
